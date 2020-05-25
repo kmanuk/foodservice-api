@@ -1,0 +1,21 @@
+foodinhoods-api:
+  image: "{{ registry_name }}/{{ repository_name }}:{{ ci_pipeline_id }}"
+  mem_limit: 838860800
+  ports:
+    - 3000:3000
+  environment:
+    - APP_TYPE=API
+    - WEB_CONCURRENCY=1
+    - RAILS_MAX_THREADS=2
+
+    - API_DOCUMENTATION_USER=doc
+    - "API_DOCUMENTATION_PASSWORD"
+
+    - SIDEKIQ_USERNAME=sidekiq
+    - "SIDEKIQ_PASSWORD"
+
+    - "TWITTER_CONSUMER_KEY"
+    - "TWITTER_CONSUMER_SECRET"
+
+include: "shared.yml.j2"
+include: "production-shared.yml.j2"

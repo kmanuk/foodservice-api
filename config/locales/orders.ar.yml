@@ -1,0 +1,23 @@
+ar:
+  errors:
+    role:
+      active_orders: "لايمكنك تغيير دورك لأن لديك طلب نشط"
+    base:
+      validate_belongs_seller: "هذا المستخدم غير مرتبط بهذا الطلب"
+      validate_belongs_driver: "هذا المستخدم غير مرتبط بهذا الطلب"
+      validate_role_seller: "فقط البائعين"
+      validate_role_driver: "فقط للسائقين النشطين"
+      amount_available: "البائع ليس لديه الكمية المطلوبة من هذه السلعة"
+      find_items: "خانة السلعة لايمكن أن تكون فارغة"
+      find_item: "لم يتم إيجاد السلعة المطلوبة"
+    calculator:
+      build_route: "لايمكن بناء الطريق"
+      empty_address: "لا يمكن ترك حقل العنوان فارغا"
+    cancel:
+      call: "فقط البائع بإمكانه إلغاء الطلب"
+      cannot_cancel: "لا يمكنك إلغاء الطلب بعد الأن"
+    change_status:
+      update_status: "تغيير حالة الطلب"
+      you_have_active_orders: "عفواً، لديك طلب نشط"
+    create:
+      before: "يجب أن يكون العنوان سليم وواقعي"

@@ -1,0 +1,23 @@
+ru:
+  errors:
+    role:
+      active_orders: "не может быть изменена с активными заказами"
+    base:
+      validate_belongs_seller: 'Этот пользователь не связан с текущим заказом'
+      validate_belongs_driver: 'Этот пользователь не связан с текущим заказом'
+      validate_role_seller: 'Только для селлера'
+      validate_role_driver: 'Только для активного драйвера'
+      amount_available: 'У селлера нет столько айтемов'
+      find_items: "Лайн айтемы не могут быть пустыми" # NOTE Зачем это?
+      find_item: 'Айтем не найден'
+    calculator:
+      build_route: 'Невозможно построить маршрут'
+      empty_address: 'Адрес не может быть пустым'
+    cancel:
+      call: 'Только драйвер или селлер могут отменить заказ'
+      cannot_cancel: 'Вы уже не можете отменить заказ'
+    change_status:
+      update_status: 'Некорректный шаг'
+      you_have_active_orders: 'У вас уже есть активный заказ'
+    create:
+      before: 'Адрес обязателен'

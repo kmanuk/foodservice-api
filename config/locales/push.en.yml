@@ -1,0 +1,10 @@
+en:
+  push_notification:
+    new_order: "You've got a new order. Address: %{address}"
+    driver_not_found: "Sorry, we could not find an available driver to deliver your order %{id}, your order is canceled"
+    not_approved: "Oops, seller did not accept the order #%{id}. Please, try again later"
+    change_status: "Your order #%{id} is %{status}"
+    order_created: "You have received a new order, please accept as soon as possible"
+    canceled_by_seller: "Order %{id} was canceled by seller"
+    canceled_by_driver: "Order %{id} was canceled by driver"
+    cooking_time: 'Cooking time is 0, please contact other users to keep them updated about this order'

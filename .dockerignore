@@ -1,0 +1,26 @@
+Dockerfile*
+.dockerignore*
+.gitlab-ci.yml
+staging.yml.j2
+
+docker-compose*
+
+# Ignore all logfiles and tempfiles.
+/log/*
+!/log/.keep
+/tmp
+.DS_Store
+
+.idea
+.env
+tags
+.tags
+.tags1
+!tags/
+
+/vendor/bundle
+
+/coverage
+
+*.swp
+*.swo

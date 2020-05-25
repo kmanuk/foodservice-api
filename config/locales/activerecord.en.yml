@@ -1,0 +1,197 @@
+en:
+  activerecord:
+    models:
+      active_admin/comment: Active admin/comment
+      address: Address
+      admin_user: Admin user
+      category: Category
+      image: Image
+      item: Item
+      line_item: Line item
+      order: Order
+      payment: Payment
+      product_type: Product type
+      review: Review
+      sub_category: Sub category
+      user: User
+
+    attributes:
+      active_admin/comment:
+        author: :activerecord.models.author
+        author_type: Author type
+        body: Body
+        namespace: Namespace
+        resource: :activerecord.models.resource
+        resource_type: Resource type
+
+      address:
+        latitude: Latitude
+        location: Location
+        longitude: Longitude
+
+      admin_user:
+        current_sign_in_at: Current sign in at
+        current_sign_in_ip: Current sign in ip
+        email: Email
+        encrypted_password: Encrypted password
+        last_sign_in_at: Last sign in at
+        last_sign_in_ip: Last sign in ip
+        remember_created_at: Remember created at
+        reset_password_sent_at: Reset password sent at
+        reset_password_token: Reset password token
+
+      category:
+        ar: Ar
+        description: Description
+        en: En
+        image: :activerecord.models.image
+        product_type: :activerecord.models.product_type
+        sub_categories: Sub categories
+
+      image:
+        data_content_type: Data content type
+        data_file_name: Data file name
+        data_file_size: Data file size
+        data_updated_at: Data updated at
+        imageable: :activerecord.models.imageable
+        imageable_type: Imageable type
+
+      item:
+        amount: Amount
+        category: :activerecord.models.category
+        image: :activerecord.models.image
+        information: Information
+        name: Name
+        orders: Orders
+        price: Price
+        product_type: :activerecord.models.product_type
+        sub_category: :activerecord.models.sub_category
+        time_to_cook: Time to cook
+        total_price: Total price
+        type: Type
+        user: :activerecord.models.user
+
+      line_item:
+        name: Name
+        order: :activerecord.models.order
+        price: Price
+        quantity: Quantity
+        total_price: Total price
+
+      order:
+        address: :activerecord.models.address
+        buyer: :activerecord.models.buyer
+        confirmed_at: Confirmed at
+        cooking_time: Cooking time
+        delivered_at: Delivered at
+        delivery_price: Delivery price
+        delivery_steps: Delivery steps
+        delivery_type: Delivery type
+        distance: Distance
+        driver: :activerecord.models.driver
+        duration: Duration
+        estimation_ready: Estimation ready
+        fee_price: Fee price
+        global_price: Global price
+        line_items: Line items
+        paid: Paid
+        payment: :activerecord.models.payment
+        payment_type: Payment type
+        pickedup_at: Picked up at
+        polyline: Polyline
+        price: Price
+        seller: :activerecord.models.seller
+        service_fee: Service fee
+        status: Status
+        total_price: Total price
+        type: Type
+
+      payment:
+        card_bin: Card bin
+        card_holder_name: Card holder name
+        card_number: Card number
+        expiry_date: Expiry date
+        merchant_reference: Merchant reference
+        order: :activerecord.models.order
+        remember: Remember
+        status: Status
+        token: Token
+
+      product_type:
+        ar: Ar
+        categories: Categories
+        en: En
+        image: :activerecord.models.image
+
+      review:
+        message: Message
+        ratable: :activerecord.models.ratable
+        ratable_type: Ratable type
+        rate: Rate
+        reviewer: :activerecord.models.reviewer
+        status: Status
+
+      sub_category:
+        ar: Ar
+        category: :activerecord.models.category
+        description: Description
+        en: En
+        image: :activerecord.models.image
+        items: Items
+
+      user:
+        active: Active
+        active_driver: Active driver
+        address: :activerecord.models.address
+        approved_driver: Approved driver
+        avatar_content_type: Avatar content type
+        avatar_file_name: Avatar file name
+        avatar_file_size: Avatar file size
+        avatar_updated_at: Avatar updated at
+        bank_name: Bank name
+        business_name: Business name
+        buyer_orders: Buyer orders
+        car_type: Car type
+        certified_driver: Certified driver
+        confirmation_sent_at: Confirmation sent at
+        confirmation_token: Confirmation token
+        confirmed_at: Confirmed at
+        current_sign_in_at: Current sign in at
+        current_sign_in_ip: Current sign in ip
+        driver_license: Driver license
+        driver_orders: Driver orders
+        email: Email
+        encrypted_password: Encrypted password
+        iban: Iban
+        insurance_name: Insurance name
+        insurance_number: Insurance number
+        items: Items
+        last_sign_in_at: Last sign in at
+        last_sign_in_ip: Last sign in ip
+        latitude: Latitude
+        locale: Locale
+        longitude: Longitude
+        name: Name
+        phone: Phone
+        plate_number: Plate number
+        provider: Provider
+        recommended_seller: Recommended seller
+        remember_created_at: Remember created at
+        reset_password_sent_at: Reset password sent at
+        reset_password_token: Reset password token
+        reviews: Reviews
+        reviews_written: Reviews written
+        role: Role
+        seller_orders: Seller orders
+        token: Token
+        tokens: Tokens
+        uid: Uid
+        unconfirmed_email: Unconfirmed email
+        video_content_type: Video content type
+        video_file_name: Video file name
+        video_file_size: Video file size
+        video_snapshot_content_type: Video snapshot content type
+        video_snapshot_file_name: Video snapshot file name
+        video_snapshot_file_size: Video snapshot file size
+        video_snapshot_updated_at: Video snapshot updated at
+        video_updated_at: Video updated at

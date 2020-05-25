@@ -1,0 +1,30 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  host: <%= ENV['DB_HOST'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+
+
+development:
+  <<: *default
+  database: food_in_hoods_development
+
+test:
+  <<: *default
+  database: food_in_hoods_test
+
+staging:
+  <<: *default
+  database: food_in_hoods_staging
+  host:     <%= ENV['AWS_DB_HOST_STAGING'] %>
+  username: <%= ENV['AWS_DB_USERNAME_STAGING'] %>
+  password: <%= ENV['AWS_DB_PASSWORD_STAGING'] %>
+
+production:
+  <<: *default
+  database: food_in_hoods_production
+  host:     <%= ENV['AWS_DB_HOST_PRODUCTION'] %>
+  username: <%= ENV['AWS_DB_USERNAME_PRODUCTION'] %>
+  password: <%= ENV['AWS_DB_PASSWORD_PRODUCTION'] %>

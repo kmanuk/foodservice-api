@@ -1,0 +1,12 @@
+- hosts: localhost
+  connection: local
+  gather_facts: False
+  tasks:
+    - name: Added builded image to {{ (lookup('env', 'CI_BUILD_REF_NAME') == master) | ternary("production", "staging") }}.yml
+      template:
+        src: "./{{ (lookup('env', 'CI_BUILD_REF_NAME') == 'master') | ternary('production', 'staging') }}.yml.j2"
+        dest: "./{{ (lookup('env', 'CI_BUILD_REF_NAME') == 'master') | ternary('production', 'staging') }}.yml"
+    - name: Added builded image to test.yml
+      template:
+        src: "./test.yml.j2"
+        dest: "./test.yml"

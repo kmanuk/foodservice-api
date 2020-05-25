@@ -1,0 +1,10 @@
+ru:
+  push_notification:
+    new_order: 'Новый заказ. Адрес: %{address}'
+    driver_not_found: 'Драйвер не найден для вашего заказа %{id}'
+    not_approved: 'Заказ не подтвержден #%{id}'
+    change_status: 'Ваш заказ #%{id} сейчас %{status}'
+    order_created: 'У вас новый заказ'
+    canceled_by_seller: 'Каков подлец! Он отменил заказ! %{id}'
+    canceled_by_driver: 'Что он себе позволяет? Он отменил заказ %{id} Ничего, мы найдем другого водителя вместо этого будущего трупа'
+    cooking_time: 'Время приготовления подходит к концу'

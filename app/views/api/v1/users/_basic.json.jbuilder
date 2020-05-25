@@ -1,0 +1,12 @@
+json.extract! user,
+              :id,
+              :name,
+              :quickblox_user_id,
+              :email,
+              :avatar_url,
+              :avatar_thumb,
+              :role,
+              :phone,
+              :created_at,
+              :push_count_messages,
+              :push_count_orders

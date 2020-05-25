@@ -1,0 +1,10 @@
+foodinhoods-api:
+  image: "{{ registry_name }}/{{ repository_name }}:{{ ci_pipeline_id }}"
+  mem_limit: 367001600
+  ports:
+    - 3000:3000
+  environment:
+    - APP_TYPE=Sidekiq
+
+include: "shared.yml.j2"
+include: "production-shared.yml.j2"

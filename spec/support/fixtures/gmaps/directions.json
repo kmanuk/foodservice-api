@@ -1,0 +1,122 @@
+{
+	"geocoded_waypoints": [{
+		"geocoder_status": "OK",
+		"place_id": "ChIJ2eUgeAK6j4ARbn5u_wAGqWA",
+		"types": ["street_address"]
+	}, {
+		"geocoder_status": "OK",
+		"place_id": "ChIJL-UkMwO6j4ARjj9pEUNN8ok",
+		"types": ["street_address"]
+	}],
+	"routes": [{
+		"bounds": {
+			"northeast": {
+				"lat": 37.4238004,
+				"lng": -122.0841804
+			},
+			"southwest": {
+				"lat": 37.4227686,
+				"lng": -122.0882019
+			}
+		},
+		"copyrights": "Map data ©2017 Google",
+		"legs": [{
+			"distance": {
+				"text": "2.4 km",
+				"value": 2404
+			},
+			"duration": {
+				"text": "2 mins",
+				"value": 103
+			},
+			"end_address": "2400 Amphitheatre Pkwy, Mountain View, CA 94043, USA",
+			"end_location": {
+				"lat": 37.4238004,
+				"lng": -122.0882019
+			},
+			"start_address": "1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA",
+			"start_location": {
+				"lat": 37.4227686,
+				"lng": -122.0841804
+			},
+			"steps": [{
+				"distance": {
+					"text": "80 m",
+					"value": 80
+				},
+				"duration": {
+					"text": "1 min",
+					"value": 33
+				},
+				"end_location": {
+					"lat": 37.4228653,
+					"lng": -122.0850785
+				},
+				"html_instructions": "Head \u003cb\u003ewest\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003ePartial restricted usage road\u003c/div\u003e",
+				"polyline": {
+					"points": "iclcFbqchV?FGvAEp@AFALAJ"
+				},
+				"start_location": {
+					"lat": 37.4227686,
+					"lng": -122.0841804
+				},
+				"travel_mode": "DRIVING"
+			}, {
+				"distance": {
+					"text": "33 m",
+					"value": 33
+				},
+				"duration": {
+					"text": "1 min",
+					"value": 7
+				},
+				"end_location": {
+					"lat": 37.423161,
+					"lng": -122.0850102
+				},
+				"html_instructions": "Turn \u003cb\u003eright\u003c/b\u003e toward \u003cb\u003eAmphitheatre Pkwy\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eRestricted usage road\u003c/div\u003e",
+				"maneuver": "turn-right",
+				"polyline": {
+					"points": "}clcFvvchVe@IA?QC"
+				},
+				"start_location": {
+					"lat": 37.4228653,
+					"lng": -122.0850785
+				},
+				"travel_mode": "DRIVING"
+			}, {
+				"distance": {
+					"text": "0.3 km",
+					"value": 291
+				},
+				"duration": {
+					"text": "1 min",
+					"value": 63
+				},
+				"end_location": {
+					"lat": 37.4238004,
+					"lng": -122.0882019
+				},
+				"html_instructions": "Turn \u003cb\u003eleft\u003c/b\u003e onto \u003cb\u003eAmphitheatre Pkwy\u003c/b\u003e\u003cdiv style=\"font-size:0.9em\"\u003eDestination will be on the right\u003c/div\u003e",
+				"maneuver": "turn-left",
+				"polyline": {
+					"points": "welcFhvchVEf@Eb@C\\EZGp@Il@CRAJAJGJADAD?DIh@MhAWhBOxACT"
+				},
+				"start_location": {
+					"lat": 37.423161,
+					"lng": -122.0850102
+				},
+				"travel_mode": "DRIVING"
+			}],
+			"traffic_speed_entry": [],
+			"via_waypoint": []
+		}],
+		"overview_polyline": {
+			"points": "iclcFbqchVOxCCXg@IQCEf@I`A[nCCVIPY~Bk@xE"
+		},
+		"summary": "Amphitheatre Pkwy",
+		"warnings": [],
+		"waypoint_order": []
+	}],
+	"status": "OK"
+}

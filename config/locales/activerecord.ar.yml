@@ -1,0 +1,197 @@
+ar:
+  activerecord:
+    models:
+      active_admin/comment: أكتيف أدمين / كومنت
+      address: عنوان
+      admin_user: مستخدم المشرف
+      category: الفئة
+      image: صورة
+      item: بند
+      line_item: خط سلعة
+      order: طلب
+      payment: دفع
+      product_type: نوع المنتج
+      review: إعادة النظر
+      sub_category: الفئة الفرعية
+      user: المستخدم
+
+    attributes:
+      active_admin/comment:
+        author: :activerecord.models.author
+        author_type: نوع المؤلف
+        body: الجسم
+        namespace: مساحة الاسم
+        resource: :activerecord.models.resource
+        resource_type: نوع المورد
+
+      address:
+        latitude: خط العرض
+        location: موقعك
+        longitude: خط الطول
+
+      admin_user:
+        current_sign_in_at: تسجيل الدخول الحالي في
+        current_sign_in_ip: "، وقع، إلى داخل، إب"
+        email: البريد الإلكتروني
+        encrypted_password: كلمة مرور مشفرة
+        last_sign_in_at: آخر تسجيل الدخول في
+        last_sign_in_ip: آخر علامة في الملكية الفكرية
+        remember_created_at: تذكر تم إنشاؤها في
+        reset_password_sent_at: إعادة تعيين كلمة المرور المرسلة في
+        reset_password_token: إعادة تعيين رمز كلمة المرور
+
+      category:
+        ar: أر
+        description: وصف
+        en: إن
+        image: :activerecord.models.image
+        product_type: :activerecord.models.product_type
+        sub_categories: الفئات الفرعية
+
+      image:
+        data_content_type: نوع محتوى البيانات
+        data_file_name: اسم ملف البيانات
+        data_file_size: حجم ملف البيانات
+        data_updated_at: تم تحديث البيانات في
+        imageable: :activerecord.models.imageable
+        imageable_type: نوع إيماجيبل
+
+      item:
+        amount: كمية
+        category: :activerecord.models.category
+        image: :activerecord.models.image
+        information: معلومات
+        name: اسم
+        orders: أوامر
+        price: السعر
+        product_type: :activerecord.models.product_type
+        sub_category: :activerecord.models.sub_category
+        time_to_cook: الوقت لطهي الطعام
+        total_price: السعر الكلي
+        type: اكتب
+        user: :activerecord.models.user
+
+      line_item:
+        name: اسم
+        order: :activerecord.models.order
+        price: السعر
+        quantity: كمية
+        total_price: السعر الكلي
+
+      order:
+        address: :activerecord.models.address
+        buyer: :activerecord.models.buyer
+        confirmed_at: أكد في
+        cooking_time: وقت الطبخ
+        delivered_at: تم التسليم في
+        delivery_price: سعر تسليم
+        delivery_steps: خطوات التسليم
+        delivery_type: نوع التوصيل
+        distance: 'مسافه: بعد'
+        driver: :activerecord.models.driver
+        duration: المدة الزمنية
+        estimation_ready: تقدير جاهزة
+        fee_price: سعر الرسوم
+        global_price: السعر العالمي
+        line_items: البنود
+        paid: دفع
+        payment: :activerecord.models.payment
+        payment_type: نوع الدفع
+        pickedup_at: بيكيدوب في
+        polyline: متعدد الخطوط
+        price: السعر
+        seller: :activerecord.models.seller
+        service_fee: رسوم الخدمة
+        status: الحالة
+        total_price: السعر الكلي
+        type: اكتب
+
+      payment:
+        card_bin: صندوق البطاقة
+        card_holder_name: إسم صاحب البطاقة
+        card_number: رقم البطاقة
+        expiry_date: تاريخ الانتهاء
+        merchant_reference: مرجع التاجر
+        order: :activerecord.models.order
+        remember: تذكر
+        status: الحالة
+        token: الرمز المميز
+
+      product_type:
+        ar: أر
+        categories: الاقسام
+        en: إن
+        image: :activerecord.models.image
+
+      review:
+        message: رسالة
+        ratable: :activerecord.models.ratable
+        ratable_type: نوع قابل للتصديق
+        rate: معدل
+        reviewer: :activerecord.models.reviewer
+        status: الحالة
+
+      sub_category:
+        ar: أر
+        category: :activerecord.models.category
+        description: وصف
+        en: إن
+        image: :activerecord.models.image
+        items: العناصر
+
+      user:
+        active: نشيط
+        active_driver: برنامج تشغيل نشط
+        address: :activerecord.models.address
+        approved_driver: سائق معتمد
+        avatar_content_type: نوع محتوى الصورة الرمزية
+        avatar_file_name: اسم ملف الصورة الرمزية
+        avatar_file_size: حجم ملف الصورة الرمزية
+        avatar_updated_at: تم تحديث الصورة الرمزية في
+        bank_name: اسم البنك
+        business_name: الاسم التجاري
+        buyer_orders: أوامر المشتري
+        car_type: نوع السيارة
+        certified_driver: سائق معتمد
+        confirmation_sent_at: تم إرسال التأكيد في
+        confirmation_token: رمز التأكيد
+        confirmed_at: أكد في
+        current_sign_in_at: تسجيل الدخول الحالي في
+        current_sign_in_ip: "، وقع، إلى داخل، إب"
+        driver_license: رخصة قيادة
+        driver_orders: أوامر السائق
+        email: البريد الإلكتروني
+        encrypted_password: كلمة مرور مشفرة
+        iban: إيبان
+        insurance_name: اسم التأمين
+        insurance_number: رقم التأمين
+        items: العناصر
+        last_sign_in_at: آخر تسجيل الدخول في
+        last_sign_in_ip: آخر علامة في الملكية الفكرية
+        latitude: خط العرض
+        locale: اللغة
+        longitude: خط الطول
+        name: اسم
+        phone: هاتف
+        plate_number: رقم لوحة
+        provider: مزود
+        recommended_seller: بائع موصى به
+        remember_created_at: تذكر تم إنشاؤها في
+        reset_password_sent_at: إعادة تعيين كلمة المرور المرسلة في
+        reset_password_token: إعادة تعيين رمز كلمة المرور
+        reviews: التعليقات
+        reviews_written: مراجعات مكتوبة
+        role: وظيفة
+        seller_orders: أوامر البائع
+        token: الرمز المميز
+        tokens: الرموز
+        uid: إيد
+        unconfirmed_email: بريد إلكتروني غير مؤكد
+        video_content_type: نوع محتوى الفيديو
+        video_file_name: اسم ملف الفيديو
+        video_file_size: حجم ملف الفيديو
+        video_snapshot_content_type: نوع محتوى لقطة الفيديو
+        video_snapshot_file_name: اسم ملف لقطة الفيديو
+        video_snapshot_file_size: حجم ملف لقطة الفيديو
+        video_snapshot_updated_at: تم تحديث لقطة الفيديو في
+        video_updated_at: تم تحديث الفيديو في

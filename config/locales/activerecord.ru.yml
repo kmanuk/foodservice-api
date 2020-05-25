@@ -1,0 +1,197 @@
+ru:
+  activerecord:
+    models:
+      active_admin/comment: Активный администратор / комментарий
+      address: Адрес
+      admin_user: Администратор
+      category: 'Категория: Новости'
+      image: Образ
+      item: Пункт
+      line_item: Позиция
+      order: порядок
+      payment: Оплата
+      product_type: Тип продукта
+      review: Обзор
+      sub_category: Подкатегория
+      user: Пользователь
+
+    attributes:
+      active_admin/comment:
+        author: :activerecord.models.author
+        author_type: Тип автора
+        body: Телосложение
+        namespace: Пространство имен
+        resource: :activerecord.models.resource
+        resource_type: Тип ресурса
+
+      address:
+        latitude: Широта
+        location: Место нахождения
+        longitude: Долгота
+
+      admin_user:
+        current_sign_in_at: Текущий вход в
+        current_sign_in_ip: Текущий вход в ip
+        email: Эл. адрес
+        encrypted_password: Зашифрованный пароль
+        last_sign_in_at: Последний вход в
+        last_sign_in_ip: Последний вход в ip
+        remember_created_at: Запомнить на сайте
+        reset_password_sent_at: Сбросить пароль, отправленный по адресу
+        reset_password_token: Сбросить токен пароля
+
+      category:
+        ar: Ар
+        description: Описание
+        en: En
+        image: :activerecord.models.image
+        product_type: :activerecord.models.product_type
+        sub_categories: Подкатегории
+
+      image:
+        data_content_type: Тип содержимого данных
+        data_file_name: Имя файла данных
+        data_file_size: Размер файла данных
+        data_updated_at: Данные обновлены на
+        imageable: :activerecord.models.imageable
+        imageable_type: Тип изображения
+
+      item:
+        amount: Количество
+        category: :activerecord.models.category
+        image: :activerecord.models.image
+        information: Информация
+        name: имя
+        orders: Заказы
+        price: Цена
+        product_type: :activerecord.models.product_type
+        sub_category: :activerecord.models.sub_category
+        time_to_cook: Время готовить
+        total_price: Итоговая цена
+        type: Тип
+        user: :activerecord.models.user
+
+      line_item:
+        name: имя
+        order: :activerecord.models.order
+        price: Цена
+        quantity: Количество
+        total_price: Итоговая цена
+
+      order:
+        address: :activerecord.models.address
+        buyer: :activerecord.models.buyer
+        confirmed_at: Подтверждено на
+        cooking_time: Время готовить
+        delivered_at: Поставляется в
+        delivery_price: Стоимость доставки
+        delivery_steps: Этапы поставки
+        delivery_type: Тип доставки
+        distance: Расстояние
+        driver: :activerecord.models.driver
+        duration: Продолжительность
+        estimation_ready: Оценка готова
+        fee_price: Стоимость участия
+        global_price: Глобальная цена
+        line_items: Позиции
+        paid: Платные
+        payment: :activerecord.models.payment
+        payment_type: Способ оплаты
+        pickedup_at: Встреча в аэропорту
+        polyline: Полилиния
+        price: Цена
+        seller: :activerecord.models.seller
+        service_fee: Плата за обслуживание
+        status: Положение дел
+        total_price: Итоговая цена
+        type: Тип
+
+      payment:
+        card_bin: Картонный ящик
+        card_holder_name: Имя владельца карты
+        card_number: Номер карты
+        expiry_date: Срок годности
+        merchant_reference: Справочник продавца
+        order: :activerecord.models.order
+        remember: Запомнить
+        status: Положение дел
+        token: Токен
+
+      product_type:
+        ar: Ар
+        categories: Смайлы Вкл.
+        en: En
+        image: :activerecord.models.image
+
+      review:
+        message: Сообщение
+        ratable: :activerecord.models.ratable
+        ratable_type: Тип покрытия
+        rate: Ставка
+        reviewer: :activerecord.models.reviewer
+        status: Положение дел
+
+      sub_category:
+        ar: Ар
+        category: :activerecord.models.category
+        description: Описание
+        en: En
+        image: :activerecord.models.image
+        items: Предметы
+
+      user:
+        active: Активный
+        active_driver: Активный драйвер
+        address: :activerecord.models.address
+        approved_driver: Утвержденный драйвер
+        avatar_content_type: Тип контента аватара
+        avatar_file_name: Имя файла аватара
+        avatar_file_size: Размер файла аватара
+        avatar_updated_at: Аватар обновлен
+        bank_name: название банка
+        business_name: Наименование фирмы
+        buyer_orders: Заказы покупателей
+        car_type: Тип автомобиля
+        certified_driver: Сертифицированный драйвер
+        confirmation_sent_at: Подтверждение отправлено на странице
+        confirmation_token: Маркер подтверждения
+        confirmed_at: Подтверждено на
+        current_sign_in_at: Текущий вход в
+        current_sign_in_ip: Текущий вход в ip
+        driver_license: Водительские права
+        driver_orders: Заказы водителей
+        email: Email
+        encrypted_password: Зашифрованный пароль
+        iban: Ибан
+        insurance_name: Название страхования
+        insurance_number: Номер страховки
+        items: Предметы
+        last_sign_in_at: Последний вход в
+        last_sign_in_ip: Последний вход в ip
+        latitude: Широта
+        locale: Locale
+        longitude: Долгота
+        name: имя
+        phone: Телефон
+        plate_number: Номерной знак
+        provider: Провайдер
+        recommended_seller: Рекомендованный продавец
+        remember_created_at: Запомнить на сайте
+        reset_password_sent_at: Сбросить пароль, отправленный по адресу
+        reset_password_token: Ссылка сброса пароля
+        reviews: Обзоры
+        reviews_written: Отзывы написаны
+        role: Роль
+        seller_orders: Заказы продавцов
+        token: Токен
+        tokens: Токены
+        uid: Uid
+        unconfirmed_email: Неподтвержденный адрес эл. Почты
+        video_content_type: Тип видеосодержания
+        video_file_name: Название видеофайла
+        video_file_size: Размер видеофайла
+        video_snapshot_content_type: Тип содержимого снимка видео
+        video_snapshot_file_name: Имя файла снимка видео
+        video_snapshot_file_size: Размер файла снимка видео
+        video_snapshot_updated_at: Снимок видео обновлен на странице
+        video_updated_at: Видео обновлено на

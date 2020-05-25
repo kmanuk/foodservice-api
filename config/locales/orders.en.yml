@@ -1,0 +1,25 @@
+en:
+  errors:
+    role:
+      active_orders: "can't be switched with active orders"
+    base:
+      validate_belongs_seller: 'This user does not belongs to this order'
+      validate_belongs_driver: 'This user does not belongs to this order'
+      validate_role_seller: 'Only for sellers'
+      validate_role_driver: 'Only for active drivers'
+      amount_available: 'Seller has no this amount of items'
+      find_items: "Line items can't be blank"
+      find_item: 'Item not found'
+    calculator:
+      build_route: 'Can not build route'
+      empty_address: 'Address can not be blank'
+    cancel:
+      call: 'Only Driver or Seller can cancel the order'
+      cannot_cancel: 'You cannot cancel this order right now'
+    change_status:
+      update_status: 'Wrong step'
+      you_have_active_orders: 'Sorry, you already has active order'
+    create:
+      before: 'Address must exist'
+    payments:
+      base: 'Error'

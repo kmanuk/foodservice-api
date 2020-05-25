@@ -1,0 +1,119 @@
+stages:
+  - build
+  - test
+  - deploy
+  - sidekiq
+
+before_script:
+  - docker login -u gitlab-ci-token -p $CI_BUILD_TOKEN gitlab.customertimes.com:8443
+
+build:
+  script:
+    - docker pull gitlab.customertimes.com:8443/web-department/foodinhoods-api:newest
+    - docker build --cache-from gitlab.customertimes.com:8443/web-department/foodinhoods-api:newest -f Dockerfile -t gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID .
+    - docker tag gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID gitlab.customertimes.com:8443/web-department/foodinhoods-api:newest
+    - docker push gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID
+    - docker push gitlab.customertimes.com:8443/web-department/foodinhoods-api:newest
+    - docker rmi gitlab.customertimes.com:8443/web-department/foodinhoods-api:newest
+    - docker rmi gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID
+  stage: build
+  except:
+    - /^[0-9]*\.[0-9]*\.[0-9]*$/
+  tags:
+    - docker
+
+rspec:
+  script:
+    - ct-aws-deploy -r eu-central-1 --convert -f test.yml.j2 -o test.yml
+    - docker-compose -f test.yml run foodinhoods-api bundle exec rails db:create
+    - docker-compose -f test.yml run foodinhoods-api bundle exec rails db:migrate > /dev/null
+    - docker-compose -f test.yml run foodinhoods-api bundle exec rspec spec --no-fail-fast
+    - docker-compose -f test.yml stop
+  stage: test
+  except:
+    - /^[0-9]*\.[0-9]*\.[0-9]*$/
+  tags:
+    - docker
+
+### STAGING DEPLOY
+# API
+staging:
+  script:
+    - sudo /home/gitlab-runner/openvpn/openvpn.sh start
+    - docker pull gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID
+    - export GIT_INFO=`git log -1 | cat`
+    - ct-aws-deploy --docker -r eu-central-1  --convert -f staging.yml.j2 -o staging.yml --repository-name $STAGING_REPO_NAME
+    - docker tag gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID $REGISTRY_NAME/$STAGING_REPO_NAME:$CI_PIPELINE_ID
+    - docker-compose -f staging.yml run foodinhoods-api bundle exec rails db:create
+    - docker-compose -f staging.yml run foodinhoods-api bundle exec rails db:migrate
+    # - docker-compose -f staging.yml run foodinhoods-api bundle exec rails db:seed
+    - docker push $REGISTRY_NAME/$STAGING_REPO_NAME:$CI_PIPELINE_ID
+    - ct-aws-deploy -r eu-central-1 -f staging.yml.j2 --repository-name $STAGING_REPO_NAME --update-service --cluster $AWS_CLUSTER_STAGING  --service api --project-name foodinhoods-staging-api
+    - docker rmi gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID
+    - sudo /home/gitlab-runner/openvpn/openvpn.sh stop
+  stage: deploy
+  environment: staging
+  only:
+    - staging
+  tags:
+    - docker
+
+# Sidekiq
+sidekiq_staging:
+  script:
+    - docker pull gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID
+    - ct-aws-deploy --docker -r eu-central-1
+    - export GIT_INFO=`git log -1 | cat`
+    - docker tag gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID $REGISTRY_NAME/$STAGING_REPO_NAME:$CI_PIPELINE_ID
+    - docker push $REGISTRY_NAME/$STAGING_REPO_NAME:$CI_PIPELINE_ID
+    - ct-aws-deploy -r eu-central-1 -f staging-sidekiq.yml.j2 --repository-name $STAGING_REPO_NAME --update-service --cluster $AWS_CLUSTER_SIDEKIQ_STAGING  --service sidekiq --project-name foodinhoods-staging-sidekiq
+    - docker rmi gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID
+  stage: sidekiq
+  only:
+    - staging
+  tags:
+    - docker
+
+### PRODUCTION DEPLOY
+# API
+production:
+  script:
+    - sudo /home/gitlab-runner/openvpn/fih-prod/openvpn-fih-prod.sh start
+    - docker pull gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID
+    - export GIT_INFO=`git log -1 | cat`
+    - ct-aws-deploy --docker -r eu-central-1  --convert -f production.yml.j2 -o production.yml --repository-name $PRODUCTION_REPO_NAME
+    - docker tag gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID $REGISTRY_NAME/$PRODUCTION_REPO_NAME:$CI_PIPELINE_ID
+    - docker-compose -f production.yml run foodinhoods-api bundle exec rails db:create
+    - docker-compose -f production.yml run foodinhoods-api bundle exec rails db:migrate
+    # - docker-compose -f production.yml run foodinhoods-api bundle exec rails db:seed
+    - docker push $REGISTRY_NAME/$PRODUCTION_REPO_NAME:$CI_PIPELINE_ID
+    - ct-aws-deploy -r eu-central-1 -f production.yml.j2 --repository-name $PRODUCTION_REPO_NAME --update-service --cluster $AWS_CLUSTER_PRODUCTION  --service api --project-name foodinhoods-production-api
+    - docker rmi gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID
+    - sudo /home/gitlab-runner/openvpn/fih-prod/openvpn-fih-prod.sh stop
+  stage: deploy
+  environment: production
+  only:
+    - master
+  tags:
+    - docker
+
+# Sidekiq
+sidekiq_production:
+  script:
+    - docker pull gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID
+    - ct-aws-deploy --docker -r eu-central-1
+    - export GIT_INFO=`git log -1 | cat`
+    - docker tag gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID $REGISTRY_NAME/$PRODUCTION_REPO_NAME:$CI_PIPELINE_ID
+    - docker push $REGISTRY_NAME/$PRODUCTION_REPO_NAME:$CI_PIPELINE_ID
+    - ct-aws-deploy -r eu-central-1 -f production-sidekiq.yml.j2 --repository-name $PRODUCTION_REPO_NAME --update-service --cluster $AWS_CLUSTER_SIDEKIQ_PRODUCTION  --service sidekiq --project-name foodinhoods-production-sidekiq
+    - docker rmi gitlab.customertimes.com:8443/web-department/foodinhoods-api:$CI_PIPELINE_ID
+  stage: sidekiq
+  only:
+    - master
+  tags:
+    - docker
+
+after_script:
+    - docker ps -a -q | xargs -r docker rm --force
+    - docker image prune -af
+    - docker volume prune -f

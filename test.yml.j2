@@ -1,0 +1,31 @@
+foodinhoods-api:
+  image: "gitlab.customertimes.com:8443/web-department/foodinhoods-api:{{ ci_pipeline_id }}"
+  ports:
+    - 3000:3000
+  environment:
+    - URL=http://food-in-hoods.dev
+    - SENDER=FoodinHoods <info@foodinhoods.com>
+    - CI=true
+    - RAILS_ENV=test
+    - RAKE_ENV=test
+    - DEVISE_SECRET_KEY=6ea1015bbb1c311c6007f3fe990fb8a45aa7280b17689e31af969ec6a1ebebbe95654e99c35a02cb862a02abe904b740096e2a484d2094b5b3f70cff4aa70002
+
+    - DB_HOST=postgres
+    - DB_USERNAME=postgres
+    - DB_PASSWORD=postgres
+    - ACCESS_CODE=wzBTueYAgOw1eD9Msp6m
+    - MERCHANT_IDENTIFIER=TMclWFPP
+    - SHA_REQUEST_PHRASE=asdaserefdsc
+    - SHA_RESPONSE_PHRASE=sdfasfdewrfs
+    - SHA_TYPE=sha512
+    - PAYMENT_SANDBOX_MODE=true
+
+    - GMAPS_KEY=some_wrong_api_key
+  links:
+    - postgres
+
+postgres:
+  image: postgres:9.6
+  environment:
+    - POSTGRES_USER=postgres
+    - POSTGRES_PASSWORD=postgres

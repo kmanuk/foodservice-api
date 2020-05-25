@@ -1,0 +1,8 @@
+p
+  | t('devise.mailer.confirmation_instructions.greeting')
+  = @email
+  | !
+p
+  | t('devise.mailer.confirmation_instructions.confirm_text')
+p
+  = link_to t('devise.mailer.confirmation_instructions.link'), confirmation_url(@resource, confirmation_token: @token)
